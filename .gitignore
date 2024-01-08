@@ -1,0 +1,5 @@
+
+venv/
+*.secret
+rss_feed.xml
+.DS_Store
