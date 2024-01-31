@@ -128,6 +128,9 @@ class MastFeedGen:
             #print(fp.read())
 
 
+class TeleFeedGen:
+
+
 from flask import Flask, Response
 app = Flask(__name__)
 
@@ -138,3 +141,12 @@ def rss():
     with open('rss_feed.xml', 'r') as fp:
         data = fp.read()
     return Response(data, mimetype='text/xml')
+
+@app.route('/tele_rss')
+def tele_rss():
+    tfg = TeleFeedGen()
+    tfg.generate_feed()
+    with open('rss_feed.xml', 'r') as fp:
+        data = fp.read()
+    return Response(data, mimetype='text/xml')
+
